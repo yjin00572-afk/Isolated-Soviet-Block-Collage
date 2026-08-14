@@ -2,7 +2,7 @@
 
 ## 安装位置
 
-当前 skill 安装在你的agent的skill文件夹下面，例如codex：
+将当前 skill 整体文件夹isolated-soviet-block-collage放在你的agent的skill文件夹下面，例如codex：
 `C:\Users\LENOVO\.codex\skills\isolated-soviet-block-collage`
 
 你也可以发送给你的agent说：您好，请帮我安装这个skill，这是链接：https://github.com/yjin00572-afk/Isolated-Soviet-Block-Collage.git
