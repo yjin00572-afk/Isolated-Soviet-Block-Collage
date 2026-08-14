@@ -35,10 +35,10 @@
 Use $isolated-soviet-block-collage on this image.
 ```
 
-### 2. 先给方案，再生成
+### 2. 先给方案，再生成（我抖音的示例图）
 
 ```text
-Use $isolated-soviet-block-collage 先给我一版方案，再继续生成。
+Use $isolated-soviet-block-collage 先给方案，再生成。
 ```
 
 ### 3. 只要提示词，不要生成
