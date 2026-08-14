@@ -1,17 +1,41 @@
 # Isolated Soviet Block Collage
 
+这是一个给 Codex 使用的本地图片编辑 skill，用于把用户上传的原图处理成“外区完全保真、内块局部苏联线稿重绘”的拼贴效果。
+
+它的核心目标不是整图风格化，而是严格的图层隔离：
+
+- 外部主图区保持原图不变
+- 只有内部不规则块允许重绘
+- 内部块颜色只能来自原图
+- 内部块内容必须重绘其所遮挡的原图区域
+- 最终输出比例必须与原图一致
+
+## 适用场景
+
+当你希望 Codex 帮你完成以下任务时，可以使用这个 skill：
+
+- 基于原图生成“局部拼贴 + 局部苏联海报线稿”的编辑提示词
+- 让 Codex 先给出提示词方案，再继续生成图片
+- 控制风格只出现在几个立体不规则块内部
+- 保证外部区域完全保留用户原图
+- 参考苏联海报、几何贴纸、分裂地图块、纸片拼贴的视觉结构
+
 ## 安装位置
 
-将当前 skill 整体文件夹isolated-soviet-block-collage放在你的agent的skill文件夹下面，例如codex：
+当前 skill 安装在：
+
 `C:\Users\LENOVO\.codex\skills\isolated-soviet-block-collage`
 
-你也可以发送给你的agent说：您好，请帮我安装这个skill，这是链接：https://github.com/yjin00572-afk/Isolated-Soviet-Block-Collage.git
+如果要发布到 GitHub，建议以 `isolated-soviet-block-collage/` 作为仓库根目录，直接提交当前目录中的全部文件。
 
 主要文件：
 
 - `SKILL.md`：skill 主规则与默认执行协议
 - `agents/openai.yaml`：Codex UI 元数据
 - `references/prompt-contract.md`：可复用的提示词骨架、负面提示和验收清单
+- `LICENSE.txt`：开源许可证
+- `NOTICE`：版权与归属说明
+- `.gitignore`：GitHub 提交忽略规则
 
 ## 默认工作流
 
@@ -35,10 +59,10 @@
 Use $isolated-soviet-block-collage on this image.
 ```
 
-### 2. 先给方案，再生成（我抖音的示例图）
+### 2. 先给方案，再生成
 
 ```text
-Use $isolated-soviet-block-collage 先给方案，再生成。
+Use $isolated-soviet-block-collage 先给我一版方案，再继续生成。
 ```
 
 ### 3. 只要提示词，不要生成
@@ -67,11 +91,34 @@ Use $isolated-soviet-block-collage 直接应用到这张图。
 
 如果图像工具可用，并且用户没有要求暂停，它会继续生成图片结果。
 
-## 举例图片
-<img width="1023" height="1537" alt="Sea" src="https://github.com/user-attachments/assets/e15c4a9b-12a3-407e-b89c-adf01547f476" />
+## 硬约束
 
- 
+以下规则是这个 skill 的核心边界：
 
+- 外区不能被重绘、滤镜化、模糊化、重新着色
+- 内部块必须集中在中间或偏中区域
+- 内部块数量默认 2 到 5 个
+- 块的边缘必须清晰，并带有阴影或立体感
+- 所有苏联风格线稿、纹理、文字都必须限制在块内部
+- 不能使用与原图无关的固定模板色
+- 不能在块内插入无关地标、飞机、口号或装饰
+- 输出尺寸和宽高比必须与原图完全一致
+
+## 参考风格建议
+
+为了获得更稳定的结果，建议同时提供：
+
+- 一张参考“块的立体贴纸感”的图片
+- 一张参考“块的分裂几何形状”的图片
+- 一张参考“块内部苏联线稿风格”的图片
+
+这样 Codex 更容易把：
+
+- 块形态
+- 块深度
+- 块内线稿语言
+
+分开理解，而不是混成整图风格化。
 
 ## 常见失败情况
 
@@ -93,7 +140,9 @@ Use $isolated-soviet-block-collage 直接应用到这张图。
 
 如果你只想拿提示词，这个 skill 也可以只停留在方案输出阶段。
 
-## GitHub 仓库结构
+## 发布到 GitHub 的建议结构
+
+建议仓库保留以下结构：
 
 ```text
 isolated-soviet-block-collage/
@@ -109,10 +158,19 @@ isolated-soviet-block-collage/
 ```
 
 ## 版权与授权
+
 当前仓库默认采用 Apache License 2.0。
+
 - 许可证文件：`LICENSE.txt`
 - 版权归属说明：`NOTICE`
 
-感谢您的观看，这是我第一次制作skill，存在任何问题或者意见欢迎咨询抖音@Breathe ，同时您在抖音发布相关作品可以@Breathe ，让我能一睹您作品的风采。
+这意味着你可以分发、修改和再发布该 skill，但应保留许可证与归属信息。
 
+## 发布前检查
 
+发布到 GitHub 前，建议确认以下几点：
+
+- `SKILL.md` 中的规则已经是你希望公开的最终版本
+- `README.md` 中的用法示例与你实际想暴露的工作流一致
+- 未把测试图片、私人素材、账号信息或本地路径秘密一并提交
+- 如果后续要公开参考图片，应确认这些图片也允许再分发

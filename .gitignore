@@ -1,0 +1,22 @@
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.tmp
+
+# Local test artifacts
+tmp/
+temp/
+output/
+outputs/
+generated/
