@@ -1,0 +1,18 @@
+isolated-soviet-block-collage
+Copyright (c) 2026 isolated-soviet-block-collage contributors
+
+This repository contains a Codex skill for strict layer-isolated image
+editing prompts and workflows.
+
+The repository is distributed under the Apache License, Version 2.0.
+See LICENSE.txt for the full license text.
+
+Attribution and content notes:
+
+- The visual approach described by this skill may be informed by user-supplied
+  reference images during use, but those reference images are not included in
+  this repository unless added separately by the repository owner.
+- Brand names, product names, and third-party imagery remain the property of
+  their respective owners.
+- The prompt rules and workflow text in this repository are provided as an
+  original reusable skill package for Codex.
