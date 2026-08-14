@@ -1,4 +1,0 @@
-interface:
-  display_name: "Soviet Block Collage"
-  short_description: "Preserve the photo outside irregular Soviet poster blocks."
-  default_prompt: "Use $isolated-soviet-block-collage to transform this image into a source-locked collage with untouched outer areas and Soviet line-art only inside irregular raised blocks."
