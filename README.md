@@ -2,7 +2,7 @@
 
 ## 安装位置
 
-当前 skill 安装在你的agent的skill文件夹下面，例如codex：
+当前 skill 安装在你的agent的skills文件夹下面，例如codex：
 
 `C:\Users\LENOVO\.codex\skills\isolated-soviet-block-collage`
 
